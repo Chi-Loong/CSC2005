@@ -3,9 +3,7 @@
 <head>
 <title>Lab 3 Assignment</title>
 <style>
-    .fail {
-        color: #f00;
-    }
+    /* CSS code goes here */
 </style>
 </head>
 <body>
@@ -21,28 +19,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
-let classroom = [
-    {name: "Alfred", math: 90, english: 70, science: 30 },
-    {name: "Betty", math: 85, english: 30, science: 65 },
-    {name: "Cindy", math: 35, english: 60, science: 90 }
-];
+    fetch(/* get the right link */)
+      .then(response => response.json())
+      .then(data => {
 
-classroom.forEach(ele => {
-
-    let mathscore = $("<li>").text(ele.name + ": " + ele.math);
-    let englishscore = $("<li>").text(ele.name + ": " + ele.english);
-
-    if (ele.math < 50) {
-        mathscore.addClass("fail");
-    }
-    if (ele.english < 50) {
-        englishscore.addClass("fail");
-    }
+        let classroom = data;
         
-    $("#mathlist").append(mathscore);
-    $("#englist").append(englishscore);
+        classroom.forEach(ele => {
+          /* Code goes here */
+        })
+      
+      });
 
-})
 
 </script>
 </body>
