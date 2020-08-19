@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Lab 3: JS in more depth</title>
+
+        <meta name="description" content="CS2005 Lab 2: Intro to HTML, CSS and JS">
+        <meta name="author" content="Chan Chi-Loong, V/R">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/night.css" id="theme">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <style>
+            p.smallfont {
+              font-size: 0.7em;
+            }
+            b {
+              color: #773333;
+            }
+        </style>
+        
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+                <section data-state="alert" data-transition="zoom">
+                    <h1 class="shadowfont white">CS2005: Lab 3</h1>
+                    <h3>JS in more depth</h3>
+                    <h5>Useful design patterns / things to know</h5>
+                </section>
+
+                <section>
+                    <h2>Objective</h2>
+                    <p>This is a quick primer into useful javascript design patterns.</p>
+                    <p>These concepts will be useful because you will see them everywhere in frontend work.</p>
+                </section>
+
+                <section>
+                    <h2>Function chaining</h2>
+                    <p>Or why JQuery became popular</p>
+                    <p>You could write this in plain vanilla JS:</p>
+                    <pre><code>
+var node = document.createElement("p");
+var textnode = document.createTextNode("Test");
+node.appendChild(textnode);
+document.getElementById("main").appendChild(node);
+                    </code></pre>
+                    <p>OR in JQuery</p>
+                    <pre><code>
+$("#main").append("<p>Test</p>");
+                    </code></pre>
+                    <p class="smallfont"><a href="https://medium.com/@saginadir/native-function-chaining-in-javascript-what-we-can-learn-from-jquery-3b42d5d4a0d">Function chaining makes reading / writing code easier.</a></p>
+                </section>
+
+                <section>
+                    <h2>Adding JQuery</h2>
+                    <p>Easiest is to import via script via a CDN (content delivery network)</p>
+                    <pre><code>
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"><&lt;script>
+                    </code></pre>
+                    <p class="smallfont">Other methods: downloading and importing yourself</p>
+                    <p class="smallfont">Install as a package, using some module bundler to manage (e.g. webpack)</p>
+                </section>
+
+                <section>
+                    <h2>JSON</h2>
+                    <p>JSON (Javascript Object Notation), sample code snippet:</p>
+                    <pre><code>
+                    let classroom = [
+                        {name: "Alfred", math: 90, english: 70 },
+                        {name: "Betty", math: 85, english: 30 },
+                        {name: "Cindy", math: 35, english: 60 }
+                    ];
+                    </code></pre>
+                    <p class="smallfont">JSON &mdash; a collection of key / value pairs &mdash; has overtaken XML as a data structure for backend to communicate with frontend. You will see this everywhere.</p>
+                    <p class="smallfont">Know how to access JSON <a href="https://www.w3schools.com/js/js_json_objects.asp">key / value pairs</a>.</p>
+                </section>
+                
+                <section>
+                    <h2>Anonymous functions</h2>
+                    <p><a href="https://en.wikibooks.org/wiki/JavaScript/Anonymous_functions">Anonymous functions</a> are functions without names.</p>
+                    <p class="smallfont">It is usually not accessible after its initial creation. Often seen as arguments to other functions.</p>
+                    <pre><code>
+                    classroom.forEach(function(ele) {
+                        console.log(ele);
+                    });
+                    </code></pre>
+                    <p>OR you can use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow notation</a> (ES6):</p>
+                    <pre><code>
+                    classroom.forEach(ele => console.log(ele));
+                    </code></pre>
+                    <p class="smallfont">Arrow notation is a shorthand for anonymous functions. Note that the two methods are not exactly synonomous (e.g. function scope). Most use cases it does not matter though.</p>
+                </section>
+                
+                <section>
+                    <h2>AJAX, fetch, Axios</h2>
+                    <p>Different methods / design patterns of accessing HTTP resources, e.g. reading and writing (GET/POST) to a web API.</p>
+                    <p class="smallfont">More detail: <a href="https://www.sitepoint.com/use-jquerys-ajax-function/">JQuery AJAX</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">fetch</a>, <a href="https://github.com/axios/axios">Axios</a></p>
+                    <p class="smallfont">For AJAX you can also use vanilla JS to write. Fetch is newer JS specification (ES6), and Axios is a popular promise-based HTTP client.</p>
+                    <p class="smallfont">Simple code snippet for fetch:</p>
+                    <pre><code>
+                    fetch('https://api.data.gov.sg/v1/environment/psi')
+                      .then(response => response.json())
+                      .then(data => console.log(data));
+                    </code></pre>
+                </section>
+                
+                <section>
+                    <h2>Callbacks, promises, async / await</h2>
+                    <p>Design patterns for handling the asynchronous nature of JS.</p>
+                    <p class="smallfont">More detail: <a href="https://javascript.info/callbacks">Callbacks</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promises</a>(ES6), <a href="https://javascript.info/async-await">Async / Await</a> (ES6)</p>
+                    <p class="smallfont">You will mainly encounter asynchronous errors typically when you do get / post operations.</p>
+                    <p class="smallfont">For example:</p>
+                    <pre><code>
+                    let myData = {};
+                    fetch('https://api.data.gov.sg/v1/environment/psi')
+                      .then(response => response.json())
+                      .then(data => {myData = data});
+                    console.log(myData);
+                    </code></pre>
+                    <p class="smallfont">What is wrong with this code?</p>
+                </section>
+                
+                <section>
+                    <h2>Data manipulation - map, reduce, filter, etc.</h2>
+                    <p>Array functions for <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">handling data</a>(ES6). Or use a library like <a href="https://lodash.com/">loadash</a> for more use cases.</p>
+                    <pre><code>
+                    const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+                    console.log(words.filter(word => word.length > 6));
+                    </code></pre>
+                </section>
+                
+                <section>
+                    <h2>Assignment Lab 3</h2>
+                    <p><b>To be completed by XX date</b></p>
+                    <p>Part 1 - setup</p>
+                    <ul>
+                    <li>On GitHub Pages, create a repo <b>CSC2005Lab3</b></li>
+                    <li>This repo link will be of the format https://<b>&lt;username&gt;</b>.github.io/CSC2005Lab3/</li>
+                    <li>Create a basic index.html file for your final solution.</li>
+                    <li>Put your CSS style tags, HTML and JS script code in that file. This makes it easier for marking.</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2>Assignment Lab 3</h2>
+                    <h4>Stub: to be completed</h4>
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>

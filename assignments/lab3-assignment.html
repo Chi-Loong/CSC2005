@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<title>Lab 3 Assignment</title>
+<style>
+    .fail {
+        color: #f00;
+    }
+</style>
+</head>
+<body>
+
+<h2>Math Score</h2>
+<ul id="mathlist">
+</ul>
+
+<h2>English Score</h2>
+<ul id="englist">
+</ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+let classroom = [
+    {name: "Alfred", math: 90, english: 70, science: 30 },
+    {name: "Betty", math: 85, english: 30, science: 65 },
+    {name: "Cindy", math: 35, english: 60, science: 90 }
+];
+
+classroom.forEach(ele => {
+
+    let mathscore = $("<li>").text(ele.name + ": " + ele.math);
+    let englishscore = $("<li>").text(ele.name + ": " + ele.english);
+
+    if (ele.math < 50) {
+        mathscore.addClass("fail");
+    }
+    if (ele.english < 50) {
+        englishscore.addClass("fail");
+    }
+        
+    $("#mathlist").append(mathscore);
+    $("#englist").append(englishscore);
+
+})
+
+</script>
+</body>
+</html>
