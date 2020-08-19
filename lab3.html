@@ -133,7 +133,7 @@ $("#main").append("<p>Test</p>");
                 </section>
                 
                 <section>
-                    <h2>Data manipulation - map, reduce, filter, etc.</h2>
+                    <h3>Data manipulation - map, reduce, filter, etc.</h3>
                     <p>Array functions for <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">handling data</a>(ES6). Or use a library like <a href="https://lodash.com/">loadash</a> for more use cases.</p>
                     <pre><code>
                     const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
@@ -141,10 +141,14 @@ $("#main").append("<p>Test</p>");
                     </code></pre>
                 </section>
                 
+                <section data-state="alert" data-transition="zoom">
+                    <h1 class="shadowfont white">Assignment</h1>
+                    <h3>Lab 3: Carpark utilization table</h3>
+                </section>
+
                 <section>
-                    <h2>Assignment Lab 3</h2>
+                    <h3>Assignment Lab 3: Setup</h3>
                     <p><b>To be completed by XX date</b></p>
-                    <p>Part 1 - setup</p>
                     <ul>
                     <li>On GitHub Pages, create a repo <b>CSC2005Lab3</b></li>
                     <li>This repo link will be of the format https://<b>&lt;username&gt;</b>.github.io/CSC2005Lab3/</li>
@@ -154,10 +158,54 @@ $("#main").append("<p>Test</p>");
                 </section>
                 
                 <section>
-                    <h2>Assignment Lab 3</h2>
-                    <h4>Stub: to be completed</h4>
+                    <h3>Assignment Lab 3: Problem</h3>
+                    <ul>
+                    <li>Connect to the data.gov.sg carpark API and get the realtime dataset.</li>
+                    <li>The URI for the API is: <a href="https://api.data.gov.sg/v1/transport/carpark-availability">https://api.data.gov.sg/v1/transport/carpark-availability</a></li>
+                    <li>Print out all the data into a table - carpark number, timestamp, total lots, lot availability, and utilization.</li>
+                    <li>Utilization is calculated - lot availability / total lots.</li>
+                    </ul>
                 </section>
-                
+
+                <section>
+                    <h3>Assignment Lab 3: Extra Challenge</h3>
+                    <ul>
+                    <li>Theme the layout of the table nicely - centralize text, use font classes, etc.</li>
+                    <li>If the utilization of the carpark is more than 80%, highlight it in <span style="color:red">red</span>.</li>
+                    <li>Note that the dataset may be full of data that does not make sense - carpark lots with 0 total lots, more lot availability than carpark lots.</li>
+                    <li>You can ignore these, or you can write code to weed out / highlight these rows!</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Assignment Lab 3: Screenshot</h3>
+                    <p class="smallfont">To prevent copying code, here's a screenshot of my solution:</p>
+                    <img src="img/carpark_table_screenshot.jpg"/>
+                    <p class="smallfont">Lots more rows below. Over 2000, in fact.</p>
+                    <p class="smallfont">I also added quite a bit of CSS theming to make the table look nicer.</p>
+                </section>
+
+                <section>
+                    <h3>Assignment Lab 3: Hints</h3>
+                    <ul>
+                    <li>This is not a design challenge - you will not be graded on design.</li>
+                    <li>More important is to show you can connect to an API, manipulate the data, and construct the table.</li>
+                    <li>Be sure you know what you are manipulating in the JSON schema - the key-value pairs you need are nested in deeper array / objects. <b>Console.log</b> it to inspect the JSON structure.</li>
+                    <li>The total lots and lot availability values are strings - you need to convert them to integers. Round off divided numbers.</li>
+                    <li>You can use JQuery to append the HTML elements you need.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Assignment Lab 3: More help please!</h3>
+                    <ul>
+                    <li>You sure?</li>
+                    <li>It's better if you challenge yourself to write from scratch.</li>
+                    <li>All right, here's a basic starter <a href="assignments/lab3-assignment-starter.html">template</a>.</li>
+                    <li>After the deadline is over I will release my template code.</li>
+                    </ul>
+                </section>
+
                 <section>
                     <h2>Questions?</h2>
                     <div class="plain">
