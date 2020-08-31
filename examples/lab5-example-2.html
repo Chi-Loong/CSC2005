@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<title>Lab 5 example - 2</title>
+</head>
+<body>
+
+<div id="app">
+    <div>Input 1: <input v-model="input1"></input></div>
+    <div>Input 2: <input v-model="input2"></input></div>
+    <h4>Result: {{ result }}</h4>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+var app = new Vue({
+  el: "#app",
+  data: {
+    input1: 2,
+    input2: 5
+  },
+  computed: {
+    result: function() {
+        return parseInt(this.input1) + parseInt(this.input2);
+    }
+  }
+})
+
+</script>
+</body>
+</html>

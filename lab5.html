@@ -19,10 +19,10 @@
         
         <style>
             p.smallfont {
-              font-size: 0.7em;
+                font-size: 0.7em;
             }
             b {
-              color: #773333;
+                color: #773333;
             }
         </style>
         
@@ -44,108 +44,133 @@
             <div class="slides">
 
                 <section data-state="alert" data-transition="zoom">
-                    <h1 class="shadowfont white">CS2005: Lab 4</h1>
-                    <h3>Bootstrap</h3>
-                    <h5>A CSS framework</h5>
+                    <h1 class="shadowfont white">CS2005: Lab 5</h1>
+                    <h3>Vue</h3>
+                    <h5>Intro to frontend JS framework</h5>
                 </section>
 
                 <section>
                     <h2>Objective</h2>
-                    <p>Learn how CSS frameworks make it far faster to code up frontend prototypes that are responsive across multiple form factors (desktop, tablet, mobile).</p>
-                    <p>CSS frameworks also have many helper interface classes that make styling and design easier for prototyping.</p>
+                    <p>Learn why JS frameworks are popular and used in modern web-development.</p>
+                    <p>JS frameworks typically help with two issues: <b>reactivity</b> and <b>componentization</b>.</p>
+                    <p><b>Reactivity</b> is the ability of the user interface to update when the application state has changed, and also vice versa.</p>
+                    <p><b>Compartmentalization</b> is how to modularize user interaction interface into components.</p>
                 </section>
 
                 <section>
-                    <h2>Why Bootstrap?</h2>
+                    <h2>Why Vue?</h2>
+                    <iframe width="720" height="480" src="https://www.youtube.com/embed/lYWYWyX04JI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p class="smallfont">Pros: It is easier to learn than Angular or React.</p>
+                    <p class="smallfont">Cons: It is less popular than React, especially in terms of jobs (2020).</p>
+                    <p class="smallfont">Personal bias: I like Vue's progressive philiosophy better.</p>
+                </section>
+                
+                <section>
+                    <h2>Vue: setup</h2>
+                    <p>There are many ways of <a href="https://vuejs.org/v2/guide/installation.html">installing Vue</a>, but the simplest (for learning) is just embed it in a script tag.</p>
+<pre><code>
+&lt;script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">&lt;/script>
+</code></pre>
+                    <p>Other useful tools for development:</p>
                     <ul>
-                    <li>Build responsive websites quickly with Bootstraps 12-grid system.</li>
-                    <li>Lots of prebuilt CSS components make prototyping quick.</li>
-                    <li>Easily include Bootstrap icons. Comes with themes.</li>
+                    <li><p class="smallfont">Get a syntax text-editor mark-up for Vue (e.g. Vetur for VSC)</p></li>
+                    <li><p class="smallfont">Setup Chrome Vue.js devtools - for debugging</p></li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2>Adding Bootstrap (and JQuery)</h2>
-                    <p>Easiest is to import via CDN. Refer to Bootstrap docs <a href="https://getbootstrap.com/docs/4.5/getting-started/introduction/">here</a>.</p>
-                    <p class="smallfont">You have to install the CSS, then JS packages. Depending on what Bootstrap functions you require, install the JS packages. Or install everything!</p>
-                    <p class="smallfont">Or, if you want to modify the base JS package, install via npm.</p>
+                    <h2>Vue: Simple template</h2>
+                    <p>Let's start with a very simple <a href="examples/lab5-example-1.html">example</a> template.</p>
+                    <p class="smallfont">"Hello World" is a classic but not very interesting and doesn't show off reactivity very well.</p>
+                    <p class="smallfont">So let's modify this a bit...</p>
+                    <p class="smallfont">More reading: <a href="https://vuejs.org/v2/guide/syntax.html">Template syntax</a></p>
+                </section>
+                
+                <section>
+                    <h2>Vue: reactivity</h2>
+                    <p>...And showcase the power of 2-way data binding.</p>
+                    <p>Change the model, and the view updates. Change the view, and the model updates.</p>
+                    <p>A lot of magic for very little code.</p>
+                    <p>Here's the updated <a href="examples/lab5-example-2.html">example</a>.</p>
+                    <p class="smallfont">More reading: <a href="https://vuejs.org/v2/guide/reactivity.html">Vue reactivity in depth</a></p>
+                </section>
+                
+                <section>
+                    <h2>Vue: Computed, watched properties</h2>
+                    <p>In-template expressions are very convenient, but they are meant for simple operations.</p>
+                    <p>Putting too much logic in your templates can make them bloated and hard to maintain.</p>
+                    <p>Therefore the idea behind <b>computed</b> properties.</p>
+                    <p class="smallfont">More reading: <a href="https://vuejs.org/v2/guide/computed.html">Computed and watched properties</a></p>
+                </section>
+                
+                <section>
+                    <h2>Vue: Event handling - Methods</h2>
+                    <p>As your events get more complicated, you will often call a <b>method</b> for handling the event instead of putting all the logic in the template.</p>
+                    <p class="smallfont">More reading: <a href="https://vuejs.org/v2/guide/events.html">Events and methods</a></p>
+                </section>
+                
+                <section>
+                    <h2>Vue: Virtual DOM</h2>
+                    <p>In a large application, the DOM tree can be huge.</p>
+                    <p>Manipulating this is expensive. You can use a JSON structure to represent DOM nodes instead</p>
+                    <p>This <b>virtual DOM</b> is faster, and how Vue tackles manipulations under the hood. (similar to React. Angular uses its own change detection mechanism)</p>
+                    <p class="smallfont">More reading: <a href="https://vuejs.org/v2/guide/render-function.html#The-Virtual-DOM">Render functions and virtual DOM</a></p>
                 </section>
 
                 <section>
-                    <h2>The 12-grid system</h2>
-                    <p>Bootstrap uses a custom 12-grid system for positioning code.</p>
-                    <pre><code>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-        <p>Content block 1...</p>
-    </div>
-    <div class="col-md-6">
-        <p>Content block 2...</p>
-    </div>
-  </div>
-</div>
-                    </code></pre>
-                    <p class="smallfont">Try out this <a href="examples/lab4-example-1.html">example.</a></p>
+                    <h2>Vue: Lifecycle hooks</h2>
+                    <p><a href="img/lifecycle.png">Vue Lifecycle</a></p>
+                    <p class="smallfont">More reading: <a href="https://vuejs.org/v2/guide/instance.html">Vue Instance</a></p>
+                    <p class="smallfont">The lifecycle hook most often used is on mounted. This is when the binding is done with the virtual DOM and everything is setup.</p>
                 </section>
-                
-                <section>
-                    <h2>Templates</h2>
-                    <p>Need template ideas and example code?</p>
-                    <p>Take a look at the whole bunch of templates from the <a href="https://getbootstrap.com/docs/4.5/examples/">website</a>.</p>
-                    <p>From simple forms to dashboards to one page layouts, there is enough for you to choose from.</p>
+
+                <section data-state="alert" data-transition="zoom">
+                    <h1 class="shadowfont white">Assignment</h1>
+                    <h3>Lab 5: Event form submission</h3>
                 </section>
-                
+
                 <section>
-                    <h2>Assignment Lab 4</h2>
+                    <h3>Assignment Lab 5: Setup</h3>
                     <p><b>To be completed by XX date</b></p>
-                    <p>Part 1 - setup</p>
                     <ul>
-                    <li>On GitHub Pages, create a repo <b>CSC2005Lab4</b></li>
-                    <li>This repo link will be of the format https://<b>&lt;username&gt;</b>.github.io/CSC2005Lab4/</li>
+                    <li>On GitHub Pages, create a repo <b>CSC2005Lab5</b></li>
+                    <li>This repo link will be of the format https://<b>&lt;username&gt;</b>.github.io/CSC2005Lab3/</li>
                     <li>Create a basic index.html file for your final solution.</li>
-                    <li>Put your CSS style tags, HTML and JS script code in that file. This makes it easier for marking.</li>
+                    <li>You can put your CSS style tags, HTML and JS script code into one file, or organize them into files/directories.</li>
                     </ul>
                 </section>
-                
+
                 <section>
-                    <h2>Assignment Lab 4</h2>
-                    <p>Part 2 - basic problem</p>
+                    <h3>Assignment Lab 5: Problem</h3>
                     <ul>
-                    <li>You have been asked by your boss to design a nice simple responsive web form for a workshop event registration.</li>
-                    <li>It needs to be mobile first, but best if it also looks nice for tablet / desktop.</li>
-                    <li>Some key fields for attendees to submit: Name, phone number, email address, address, profession.</li>
-                    <li>Hint: There may be a bootstrap template example you can easily use as a base to work with.</li>
+                    <li>Remember your assignment from Lab 4?</li>
+                    <li>Now you actually have to do something with the form.</li>
+                    <li>You're going to use Vue to add reactivity to your project.</li>
+                    <li>And then when you "submit" the content you are going to print out the result on <b>console.log</b>, or display on the frontend somewhere.</li>
+                    <li>(We're assuming that you will write AJAX code to submit to some backend service)</li>
                     </ul>
                 </section>
-                
+
                 <section>
-                    <h2>Assignment Lab 4</h2>
-                    <p>Part 3 - extra challenges</p>
+                    <h3>Assignment Lab 5: Extra Challenges</h3>
                     <ul>
-                    <li>Do some frontend validation for fields like emails, etc.</li>
-                    <li>Embed a google map and add mock event location details.</li>
+                    <li>Actually write AJAX code to submit the data to a web service.</li>
+                    <li>For example, write to a Google spreadsheet.</li>
+                    <li>Or use a free API mocker (mocky.io, postman, etc.) to simulate the response process.</li>
+                    <li>Or use a simple freemium backend (restdb.io). Scale up all the way to bigger <a href="https://medium.com/@george_51059/backend-as-a-service-list-9104bdce845e">backend-as-a-service</a>.</li>
+                    <li>Or design and create your own API backend.</li>
                     </ul>
                 </section>
-                
+
                 <section>
-                    <h2>Assignment Lab 4</h2>
-                    <p>Part 4 - comments</p>
+                    <h3>Assignment Lab 5: Here's a template</h3>
                     <ul>
-                    <li>Grading will be on whether the form is responsive or not.</li>
-                    <li>You can use Bootstrap, or any other framework, or even write your own responsive design.</li>
-                    <li>This is a frontend challenge only, and there is no expectation for the interface to connect to any backend server. (i.e. POST calls to submit data to an API)</li>
+                    <li>You can 100% use your own form template if you do not want to use mine.</li>
+                    <li>Here's the basic starter <a href="assignments/lab5/lab5-assignment-starter.html">template</a> code.</li>
+                    <li>Fill in the rest, and also the methods for submission.</li>
                     </ul>
                 </section>
-                
-                <section>
-                    <h2>Questions?</h2>
-                    <div class="plain">
-                        <div class="rotate-icon"><a href="http://www.vslashr.com"><img width="100" src="img/VslashR_logo_white.svg"></a></div>
-                    </div>
-                    <p><small>chiloong@vslashr.com</small></p>
-                </section>
-                
+
             </div>
         </div>
 
