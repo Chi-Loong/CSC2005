@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Lab 6: Vue CLI tooling, routing</title>
+
+        <meta name="description" content="CS2005 Lab 6: CLI tooling, routing">
+        <meta name="author" content="Chan Chi-Loong, V/R">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/night.css" id="theme">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <style>
+            p.smallfont {
+                font-size: 0.7em;
+            }
+            b {
+                color: #773333;
+            }
+        </style>
+        
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+                <section data-state="alert" data-transition="zoom">
+                    <h1 class="shadowfont white">CS2005: Lab 6</h1>
+                    <h3>Vue</h3>
+                    <h5>CLI tooling, routing</h5>
+                </section>
+
+                <section>
+                    <h2>Objective</h2>
+                    <p>An introduction to how to setup a modern frontend project using everything you've learnt so far.</p>
+                    <p>Use the Vue CLI toolchain to bootstrap the development process.</p>
+                    <p>Here's where you get a better sense of how modularity / compartmentalization works in dev teams.</p>
+                </section>
+
+                <section>
+                    <h2>NPM basics</h2>
+                    <p><a href="https://www.npmjs.com/">NPM</a>, or node package manager, is the world's largest software registry (library)</p>
+                    <p>The easiest way to start using is to just download <a href="https://nodejs.org/en/">node.js</a> as NPM is bundled with it.</p>
+                    <p class="smallfont">Install npm, and make sure you have the permissions setup.</p>
+                    <p class="smallfont">On a terminal command line (or powershell), make sure you can run npm, e.g: <b>npm -v</b></p>
+                </section>
+                
+                <section>
+                    <h2>Vue CLI</h2>
+                    <p>The <a href="https://cli.vuejs.org/">Vue CLI</a> is a simple, fully configurable scaffold for Vue projects.</p>
+                    <p>You can then install the Vue CLI with <b>npm install -g @vue/cli</b> command.</p>
+                    <p class="smallfont">This installs the Vue CLI (Command line interface) on the global path, but you can also do this on a local directory. Just make sure the path is set correctly.</p>
+                    <p class="smallfont">A useful way to list packages installed is <b>npm list -g --depth 0</b>. Leave out the <b>-g</b> flag is checking for local directory.</p>
+                    <p class="smallfont">You can of course install the <a href="https://cli.vuejs.org/">Vue CLI</a> using yarn, if you prefer that package manager.</p>
+                </section>
+
+                <section>
+                    <h2>Vue CLI 2</h2>
+                    <p>Use Vue to create your project: e.g. <b>vue create test</b></p>
+                    <p class="smallfont">Suggest you pick defaults (Vue 2)</p>
+                    <p class="smallfont">Then change to the project directory and <b>npm run serve</b> to run it.</p>
+                    <p class="smallfont">Check that the project is served on localhost.</p>
+                </section>
+                
+                <section>
+                    <h2>Vue components</h2>
+                    <p>Check and take a look at the basic <b>App.vue</b>.</p>
+                    <p class="smallfont">You can see that the base template is decomposed into Vue components.</p>
+                    <p class="smallfont">Each Vue component is its own self-contained file. HTML Vue template, Vue script code, and also CSS is one file.</p>
+                    <p class="smallfont">This is a design philosophy that this is more readable than separate HTML templates, HS code and CSS.</p>
+                    <p class="smallfont">Tip: Have a Vue context highlighter, e.g. Vetur for VSC. WIll make spotting bugs easier.</p>
+                    <p class="smallfont">Tip: Install Vue.js dev tools extension for Chrome. Will make debugging a lot easier.</p>
+                </section>
+                
+                <section>
+                    <h2>Vue: Router</h2>
+                    <p><a href="https://router.vuejs.org/">Vue router</a> is useful if you are setting up a single-page app.</p>
+                    <p>Either install using the <b>vue ui</b> GUI, or use the Vue CLI <b>vue add router</b>, or npm install the package directly.</p>
+                    <p class="smallfont">Install, and check how the scaffolding files have been changed.</p>
+                    <p class="smallfont">It is a design pattern framework of routes, views, and components.</p>
+                </section>
+                
+                <section>
+                    <h2>Add a CSS / UI framework</h2>
+                    <p>There are tons of <a href="https://www.codeinwp.com/blog/vue-ui-component-libraries/">UI frameworks for Vue</a> - just pick what you like.</p>
+                    <p>Vuetify, Buetify, vue-bootstrap, etc.</p>
+                    <p>Follow instructions on the various sites, and install away.</p>
+                    <p class="smallfont">Typically it is installed using npm or vue CLI.</p>
+                </section>
+                
+                <section>
+                    <h2>Vue Ecosystem</h2>
+                    <p>The Vue ecosystem comes with lots of tools. Whatever you have in the React or Angular ecosystem, you will find something similar here.</p>
+                    <p class="smallfont">E.g. <a href="https://vuex.vuejs.org/">Vuex</a> (state management pattern + store), <a href="https://nuxtjs.org/">Nuxt.js</a> (server-side rendering)</p>
+                    <p class="smallfont">Investigate on your own! Beyond the scope of this module.</p>
+                </section>
+
+                <section>
+                    <h2>Build for production</h2>
+                    <p>When you want to build your app for production, do <b>npm run build</b>.</p>
+                    <p>It will remove all unneeded code and minimize the files.</p>
+                    <p class="smallfont">Typically it is pushed into the dist directory. You can just push this out into your production server.</p>
+                    <p class="smallfont">Likely for this CSC2005 HCI project it means on GitPages.</p>
+                </section>
+
+                <section>
+                    <h2>Your HCI Project</h2>
+                    <p>You may not need tool scaffolding unless you think it makes your coding process easier.</p>
+                    <p>You can use any framework (or no framework) - up to you. You can use whatever libraries (or not) as you wish.</p>
+                    <p>Frameworks are designed to make your life easier, and to setup a structure to scaffold a project.</p>
+                </section>
+
+                <section data-state="alert" data-transition="zoom">
+                    <h1 class="shadowfont white">Assignment</h1>
+                    <h3>Lab 6: Setup your HCI project</h3>
+                    <h4>Aka no assignment</h4>
+                </section>
+
+                <section>
+                    <h2>Questions?</h2>
+                    <div class="plain">
+                        <div class="rotate-icon"><a href="http://www.vslashr.com"><img width="100" src="img/VslashR_logo_white.svg"></a></div>
+                    </div>
+                    <p><small>Chi-Loong | V/R</small></p>
+                </section>
+
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
