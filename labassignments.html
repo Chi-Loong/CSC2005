@@ -19,7 +19,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css"/>
-    
 </head>
 <body>
 
@@ -43,6 +42,7 @@ Papa.parse("data/csc2005classlist.csv", {
         
         $("#csc2005").DataTable({
             data: data,
+            responsive: true,
             columns: [
                 { title: "Full Name" },
                 { title: "Student ID" },
