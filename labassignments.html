@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SIT CSC2005">
+    <meta name="author" content="Chi-Loong (www.vslashr.com)">
+    <meta name="google-site-verification" content="..." />
+
+    <meta property="og:title" content="SIT CSC2005 course">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chi-loong.github.io/CSC2005/">
+    <meta property="og:description" content="SIT CSC2005">
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@vslashr" />
+    <meta name="twitter:creator" content="@chiloong" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css"/>
+</head>
+<body>
+
+<div class="container">
+    <table id="csc2005" class="table table-striped table-bordered" width="100%"></table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+<script src="js/papaparse.min.js"></script>
+<script>
+
+Papa.parse("data/csc2005marking.csv", {
+    delimiter: ",",
+    header:true,
+    download:true,
+    complete: function(results) {
+    
+        var data = results.data.map(function(d) {return [d.id, d.fullname, d.github, d.lab1comments]});
+        
+        $("#csc2005").DataTable({
+            data: data,
+            responsive: true,
+            columns: [
+                { title: "Student ID" },
+                { title: "Full Name" },
+                { title: "Github Username" },
+                { title: "Lab1 Comments", orderable: false },
+                { title: "Lab1", orderable: false }
+//                { title: "Lab2", orderable: false },
+//                { title: "Lab3", orderable: false },
+//                { title: "Lab4", orderable: false },
+//                { title: "Lab5", orderable: false }
+            ],
+            pageLength: 50,
+            order: [[0, "asc"]],
+            columnDefs: [
+            {
+                targets: 4,
+                data: "Lab1",
+                render: function ( data, type, row, meta ) {
+                  return '<a href="https://github.com/' + row[2] + '/mylab1">Lab1 link</a>';
+                }
+            },
+            /*
+            {
+                targets: 4,
+                data: "Lab2",
+                render: function ( data, type, row, meta ) {
+                  return '<a href="https://' + row[2] + '.github.io/CSC2005Lab2/">Lab2 link</a>';
+                }
+            },
+            {
+                targets: 5,
+                data: "Lab3",
+                render: function ( data, type, row, meta ) {
+                  return '<a href="https://' + row[2] + '.github.io/CSC2005Lab3/">Lab3 link</a>';
+                }
+            },
+                {
+                targets: 6,
+                data: "Lab4",
+                render: function ( data, type, row, meta ) {
+                  return '<a href="https://' + row[2] + '.github.io/CSC2005Lab4/">Lab4 link</a>';
+                }
+            },
+            {
+                targets: 7,
+                data: "Lab5",
+                render: function ( data, type, row, meta ) {
+                  return '<a href="https://' + row[2] + '.github.io/CSC2005Lab5/">Lab5 link</a>';
+                }
+            } */
+            ]
+        });
+    }
+})
+</script>
+</body>
+</html>
