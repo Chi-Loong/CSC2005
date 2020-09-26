@@ -47,6 +47,7 @@ var app = new Vue({
   methods: {
     addStudent() {
         this.classroom.push(this.student);
+        this.student = { name: "Name", english: 0, math: 0 };
     }
   }
 })

@@ -23,6 +23,7 @@
     <input v-model="student.english"></input>
     <input v-model="student.math"></input>
     <button @click="addStudent">Add student!</button>
+    
 </div>
 
 <script src="https://unpkg.com/vue@next"></script>
@@ -36,14 +37,15 @@ const app = {
         { name: "Carl", english: 45, math: 90 }
     ],
     student: {
-        name: "",
-        english: "",
-        math: ""
+        name: "Name",
+        english: 0,
+        math: 0
     },
   }),
   methods: {
     addStudent() {
         this.classroom.push(this.student);
+        this.student = { name: "Name", english: 0, math: 0 };
     }
   }
 }
