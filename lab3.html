@@ -47,6 +47,16 @@
                 </section>
 
                 <section>
+                    <h2>Adding JQuery</h2>
+                    <p>Easiest is to import via script via a CDN (content delivery network)</p>
+                    <pre><code>
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">&lt;/script>
+                    </code></pre>
+                    <p class="smallfont">Other methods: downloading and importing yourself</p>
+                    <p class="smallfont">Install as a package, using some module bundler to manage (e.g. webpack)</p>
+                </section>
+
+                <section>
                     <h2>Function chaining</h2>
                     <p>Or why JQuery became popular</p>
                     <p>You could write this in plain vanilla JS:</p>
@@ -61,16 +71,6 @@ document.getElementById("main").appendChild(node);
 $("#main").append("<p>Test</p>");
                     </code></pre>
                     <p class="smallfont"><a href="https://medium.com/@saginadir/native-function-chaining-in-javascript-what-we-can-learn-from-jquery-3b42d5d4a0d">Function chaining makes reading / writing code easier.</a></p>
-                </section>
-
-                <section>
-                    <h2>Adding JQuery</h2>
-                    <p>Easiest is to import via script via a CDN (content delivery network)</p>
-                    <pre><code>
-&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">&lt;/script>
-                    </code></pre>
-                    <p class="smallfont">Other methods: downloading and importing yourself</p>
-                    <p class="smallfont">Install as a package, using some module bundler to manage (e.g. webpack)</p>
                 </section>
 
                 <section>
@@ -163,7 +163,7 @@ $("#main").append("<p>Test</p>");
                     <li>Connect to the data.gov.sg carpark API and get the realtime dataset. It is detailed <a href="https://data.gov.sg/dataset/carpark-availability">here</a>.</li>
                     <li>The URI for the API is: <a href="https://api.data.gov.sg/v1/transport/carpark-availability">https://api.data.gov.sg/v1/transport/carpark-availability</a></li>
                     <li>Print out all the data into a table - carpark number, timestamp, lot type, total lots, lot availability, and utilization.</li>
-                    <li>Utilization is calculated - lot availability / total lots.</li>
+                    <li>Utilization is calculated. It is (total lots - available lots) / total lots.</li>
                     </ul>
                 </section>
 

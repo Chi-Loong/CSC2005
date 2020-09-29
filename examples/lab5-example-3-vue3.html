@@ -18,20 +18,18 @@
             <td> {{ ele.math }}</td>
         </tr>
     </table>
-
+    
     <input v-model="student.name"></input>
     <input v-model="student.english"></input>
     <input v-model="student.math"></input>
     <button @click="addStudent">Add student!</button>
     
-    
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
 <script>
 
-var app = new Vue({
-  el: "#app",
+const app = {
   data: () => ({
     classroom: [
         { name: "Alfred", english: 70, math: 25},
@@ -50,7 +48,9 @@ var app = new Vue({
         this.student = { name: "Name", english: 0, math: 0 };
     }
   }
-})
+}
+
+Vue.createApp(app).mount('#app');
 
 </script>
 </body>
