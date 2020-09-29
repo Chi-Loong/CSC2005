@@ -104,10 +104,19 @@ $("#main").append("<p>Test</p>");
                 </section>
                 
                 <section>
+                    <h3>Data manipulation - map, reduce, filter, etc.</h3>
+                    <p>Array functions for <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">handling data</a>(ES6). Or use a library like <a href="https://lodash.com/">loadash</a> for more use cases.</p>
+                    <pre><code>
+                    const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+                    console.log(words.filter(word => word.length > 6));
+                    </code></pre>
+                </section>
+
+                <section>
                     <h2>AJAX, fetch, Axios</h2>
                     <p>Different methods / design patterns of accessing HTTP resources, e.g. reading and writing (GET/POST) to a web API.</p>
                     <p class="smallfont">More detail: <a href="https://www.sitepoint.com/use-jquerys-ajax-function/">JQuery AJAX</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">fetch</a>, <a href="https://github.com/axios/axios">Axios</a></p>
-                    <p class="smallfont">For AJAX you can also use vanilla JS to write. Fetch is newer JS specification (ES6), and Axios is a popular promise-based HTTP client.</p>
+                    <p class="smallfont">For <a href="https://www.w3schools.com/xml/ajax_intro.asp">AJAX</a> you can also use vanilla JS to write. Fetch is newer JS specification (ES6), and Axios is a popular promise-based HTTP client.</p>
                     <p class="smallfont">Simple code snippet for fetch:</p>
                     <pre><code>
                     fetch('https://api.data.gov.sg/v1/environment/psi')
@@ -130,15 +139,6 @@ $("#main").append("<p>Test</p>");
                     console.log(myData);
                     </code></pre>
                     <p class="smallfont">What is wrong with this code?</p>
-                </section>
-                
-                <section>
-                    <h3>Data manipulation - map, reduce, filter, etc.</h3>
-                    <p>Array functions for <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">handling data</a>(ES6). Or use a library like <a href="https://lodash.com/">loadash</a> for more use cases.</p>
-                    <pre><code>
-                    const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-                    console.log(words.filter(word => word.length > 6));
-                    </code></pre>
                 </section>
                 
                 <section data-state="alert" data-transition="zoom">
