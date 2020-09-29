@@ -38,7 +38,7 @@ Papa.parse("data/csc2005marking.csv", {
     download:true,
     complete: function(results) {
     
-        var data = results.data.map(function(d) {return [d.id, d.fullname, d.github, d.lab1comments]});
+        var data = results.data.map(function(d) {return [d.id, d.fullname, d.github]});
         
         $("#csc2005").DataTable({
             data: data,
@@ -47,9 +47,8 @@ Papa.parse("data/csc2005marking.csv", {
                 { title: "Student ID" },
                 { title: "Full Name" },
                 { title: "Github Username" },
-                { title: "Lab1 Comments", orderable: false },
                 { title: "Lab1", orderable: false }
-//                { title: "Lab2", orderable: false },
+                { title: "Lab2", orderable: false }
 //                { title: "Lab3", orderable: false },
 //                { title: "Lab4", orderable: false },
 //                { title: "Lab5", orderable: false }
@@ -64,14 +63,14 @@ Papa.parse("data/csc2005marking.csv", {
                   return '<a href="https://github.com/' + row[2] + '/mylab1">Lab1 link</a>';
                 }
             },
-            /*
             {
-                targets: 4,
+                targets: 5,
                 data: "Lab2",
                 render: function ( data, type, row, meta ) {
                   return '<a href="https://' + row[2] + '.github.io/CSC2005Lab2/">Lab2 link</a>';
                 }
-            },
+            }
+            /*
             {
                 targets: 5,
                 data: "Lab3",
