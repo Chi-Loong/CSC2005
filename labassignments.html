@@ -49,8 +49,8 @@ Papa.parse("data/csc2005marking.csv", {
                 { title: "Full Name" },
                 { title: "Github Username" },
                 { title: "Lab1", orderable: false },
-                { title: "Lab2", orderable: false }
-//                { title: "Lab3", orderable: false },
+                { title: "Lab2", orderable: false },
+                { title: "Lab3", orderable: false }
 //                { title: "Lab4", orderable: false },
 //                { title: "Lab5", orderable: false }
             ],
@@ -70,29 +70,14 @@ Papa.parse("data/csc2005marking.csv", {
                 render: function ( data, type, row, meta ) {
                   return '<a href="https://' + row[2] + '.github.io/csc2005-lab02-2020/">Lab2 link</a>';
                 }
-            }
-            /*
+            },
             {
                 targets: 5,
                 data: "Lab3",
                 render: function ( data, type, row, meta ) {
-                  return '<a href="https://' + row[2] + '.github.io/CSC2005Lab3/">Lab3 link</a>';
+                  return '<a href="https://' + row[2] + '.github.io/csc2005-lab03-2020/">Lab3 link</a>';
                 }
-            },
-                {
-                targets: 6,
-                data: "Lab4",
-                render: function ( data, type, row, meta ) {
-                  return '<a href="https://' + row[2] + '.github.io/CSC2005Lab4/">Lab4 link</a>';
-                }
-            },
-            {
-                targets: 7,
-                data: "Lab5",
-                render: function ( data, type, row, meta ) {
-                  return '<a href="https://' + row[2] + '.github.io/CSC2005Lab5/">Lab5 link</a>';
-                }
-            } */
+            }
             ]
         });
     }
