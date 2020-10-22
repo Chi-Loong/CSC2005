@@ -99,11 +99,19 @@
                 
                 <section>
                     <h2>Vue: reactivity 2</h2>
-                    <p>A third <a href="examples/lab5-example-3.html">example</a> that showscases reactivity.</p>
+                    <p>A third <a href="examples/lab5-example-3.html">example</a> that showcases reactivity.</p>
                     <p>Let's do some quick code along as we see why data binding is so powerful.</p>
                 </section>
                 
-                
+                <section>
+                    <h2>Vue: Conditional / List rendering</h2>
+                    <p>You can easily render a list of objects in an array using the <b>v-for</b> directive.</p>
+                    <p class="smallfont">More reading: <a href="https://vuejs.org/v2/guide/list.html">List rendering</a></p>
+                    
+                    <p>If you need conditional rendering you can use the <b>v-if</b> directive.</p>
+                    <p class="smallfont">More reading: <a href="https://vuejs.org/v2/guide/conditional.html">Conditional rendering</a></p>
+                </section>
+
                 <section>
                     <h2>Vue: Computed, watched properties</h2>
                     <p>In-template expressions are very convenient, but they are meant for simple operations.</p>
@@ -155,19 +163,27 @@
                     <li>Remember your assignment from Lab 4?</li>
                     <li>Now you actually have to do something with the form.</li>
                     <li>You're going to use Vue to add reactivity to your project.</li>
-                    <li>And then when you "submit" the content you are going to print out the result on <b>console.log</b>, or display on the frontend somewhere.</li>
-                    <li>(We're assuming that you will write AJAX code to submit to some backend service)</li>
+                    <li>And then when you "submit" the content you are going to display the result on the frontend somewhere.</li>
+                    <li>For this assignment we will NOT write to some backend service - I want to concentrate more on the Vue portion.</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h3>Assignment Lab 5: Extra Challenges</h3>
+                    <h3>Assignment Lab 5: Screenshots</h3>
+                    <p>When you submit, add the results to a table. Here's a screenshot.<p>
+                    <img src="img/submissions_table_800.jpg"/>
+                    <p>Extra Challenge: Add in a method to delete rows from the table, and hook it to the UI.<p>
+                </section>
+
+                <section>
+                    <h3>Assignment Lab 5: Comments</h3>
                     <ul>
-                    <li>Actually write AJAX code to submit the data to a web service.</li>
-                    <li>For example, write to a Google spreadsheet.</li>
-                    <li>Or use a free API mocker (mocky.io, postman, etc.) to simulate the response process.</li>
-                    <li>Or use a simple freemium backend (restdb.io). Scale up all the way to bigger <a href="https://medium.com/@george_51059/backend-as-a-service-list-9104bdce845e">backend-as-a-service</a>.</li>
-                    <li>Or design and create your own API backend.</li>
+                    <li>This table is added to the form frontend page, after the form itself.</li>
+                    <li>Ideally, this table should be on another pane of a single page app, but as I will cover routing next lab, I do not expect it here.</li>
+                    <li>Grading will be on the <b>reactivity</b> of the UI.</li>
+                    <li>I will not be looking at the layout and design, but more on how you hook the view to the Vue data model.</li>
+                    <li>Remember, reactivity is a design pattern that is supposed to save you time / effort.</li>
+                    <li>If you are not using Vue but can demonstrate this using React and / or Angular, I am fine.</li>
                     </ul>
                 </section>
 
@@ -175,9 +191,28 @@
                     <h3>Assignment Lab 5: Here's a template</h3>
                     <ul>
                     <li>You can 100% use your own form template if you do not want to use mine.</li>
-                    <li>Here's the basic starter <a href="assignments/lab5/lab5-assignment-starter.html">template</a> code.</li>
-                    <li>Fill in the rest, and also the methods for submission.</li>
+                    <li>Here's my basic starter <a href="assignments/lab5/lab5-assignment-starter.html">template</a> code.</li>
+                    <li>I've added in the libraries for Vue Bootstrap (a Bootstrap version specifically for Vue that doesn't use JQuery).</li>
+                    <li>JQuery messes up how Vue manipulates the DOM because their way of modifying the DOM is different under the hood.</li>
+                    <li>If you use plain Bootstrap, just use for CSS theming (skip the JQuery).</li>
+                    <li>TLDR: In short, if you use any frameworks, <u>make sure it does not clash with Vue</u>.</li>
                     </ul>
+                </section>
+                
+                <section data-state="alert" data-transition="zoom">
+                    <h1 class="shadowfont white">Backend</h1>
+                    <h3>Simulating a backend</h3>
+                </section>
+
+                <section>
+                    <h3>Mocking a backend</h3>
+                    <ul>
+                    <li>There are various ways to simulate a backend.</li>
+                    <li>For example, read and write to a Google spreadsheet.</li>
+                    <li>Or use a simple freemium backend (e.g. restdb.io). Scale up all the way to bigger <a href="https://medium.com/@george_51059/backend-as-a-service-list-9104bdce845e">backend-as-a-service</a>.</li>
+                    <li>Or design and create your own simple API backend. For JS, you spin up a simple Node / Express server.</li>
+                    </ul>
+                    <p>Will show in class how to use and mock-up a simple backend using restdb.io</p>
                 </section>
                 
                 <section>
