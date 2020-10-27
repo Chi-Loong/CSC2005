@@ -12,10 +12,11 @@
             <th>English</th>
             <th>Math</th>
         </tr>
-        <tr v-for="ele in classroom">
+        <tr v-for="(ele,i) in classroom">
             <td> {{ ele.name }}</td>
             <td> {{ ele.english }}</td>
             <td> {{ ele.math }}</td>
+            <td> <button @click="removeStudent(ele, i)">Delete!</button></td>
         </tr>
     </table>
 
@@ -23,8 +24,6 @@
     <input v-model="student.english"></input>
     <input v-model="student.math"></input>
     <button @click="addStudent">Add student!</button>
-    
-    
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -45,9 +44,13 @@ var app = new Vue({
     },
   }),
   methods: {
-    addStudent() {
+    addStudent: function() {
         this.classroom.push(this.student);
         this.student = { name: "Name", english: 0, math: 0 };
+    },
+    removeStudent: function(ele, i) {
+        console.log(ele, i);
+        this.classroom.splice(i,1);
     }
   }
 })
