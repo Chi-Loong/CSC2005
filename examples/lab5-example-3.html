@@ -16,7 +16,6 @@
             <td> {{ ele.name }}</td>
             <td> {{ ele.english }}</td>
             <td> {{ ele.math }}</td>
-            <td> <button @click="removeStudent(ele, i)">Delete!</button></td>
         </tr>
     </table>
 
@@ -47,10 +46,6 @@ var app = new Vue({
     addStudent: function() {
         this.classroom.push(this.student);
         this.student = { name: "Name", english: 0, math: 0 };
-    },
-    removeStudent: function(ele, i) {
-        console.log(ele, i);
-        this.classroom.splice(i,1);
     }
   }
 })
